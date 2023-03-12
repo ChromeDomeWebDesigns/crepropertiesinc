@@ -1,9 +1,14 @@
 <template>
-  <Tutorial />
+  <landing />
 </template>
 
 <script>
+import Landing from '@/components/home/Landing'
+
 export default {
-  name: 'IndexPage'
+  name: 'HomeView',
+  components: {
+    Landing
+  }
 }
 </script>
