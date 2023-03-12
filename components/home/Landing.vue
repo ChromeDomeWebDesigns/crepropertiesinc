@@ -24,7 +24,7 @@ export default {
   @import './assets/styles/breaks';
 
   section {
-    height: 100vh;
+    height: 80vh;
     margin: 20vh auto auto auto;
     font-size: 2em;
 
