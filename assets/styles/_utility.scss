@@ -42,12 +42,24 @@
   text-transform: uppercase;
 }
 
+.w-0 {
+  width: 0;
+}
+
+.w-75 {
+  width: 75%;
+}
+
 .w-100 {
   width: 100%;
 }
 
 .w-a {
   width: auto;
+}
+
+.w-max {
+  width: max-content;
 }
 
 .icon-fix { // for FA icons that sit a little too high
@@ -66,10 +78,19 @@
   white-space: nowrap
 }
 
+.pointer {
+  cursor: pointer;
+}
+
+.wrap {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
 .nowrap {
   white-space: nowrap;
 }
 
-.pointer {
-  cursor: pointer;
+.hidden {
+  visibility: hidden;
 }
