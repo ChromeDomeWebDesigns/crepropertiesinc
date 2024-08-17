@@ -34,6 +34,7 @@
     background-position: 75% center;
 
     .landing-square {
+      margin-top: -5rem;
       display: flex;
       flex-direction: column;
       align-items: center;
