@@ -79,7 +79,7 @@
       h1 {
         font-weight: 900;
         font-size: 1.3em;
-        color: color('blackLight');
+        color: color('white');
 
         @media (min-width: breaks(phone)) {
           font-size: 1.4em;
