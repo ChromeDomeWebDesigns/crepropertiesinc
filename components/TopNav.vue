@@ -9,7 +9,7 @@
       </nuxt-link>
       <div class="collapse w-100" :class="{ 'show': showNav }">
         <nav class="links w-100">
-          <nuxt-link to="/home">Home</nuxt-link>
+          <nuxt-link to="/">Home</nuxt-link>
           <nuxt-link to="/about">About</nuxt-link>
           <nuxt-link to="/listings">Listings</nuxt-link>
           <nuxt-link to="/blog">Blog</nuxt-link>

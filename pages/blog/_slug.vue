@@ -39,10 +39,10 @@
         return
       }
 
-      const title =  `${fields.title} | RE Analyzer`
+      const title =  `${fields.title} | CRE Properties`
       const description = fields.description
       const image = fields.heroImage?.fields?.file?.url
-      const site = `https://thereanalyzer.com.com/blog/${fields.slug}`
+      const site = `https://crepropertiesinc.com.com/blog/${fields.slug}`
 
       return headBuilder({ title, description, image, site })
     },
