@@ -1,5 +1,8 @@
 <template>
   <section>
+    <div class="image-container">
+      <img src="/images/Polaroid.jpg">
+    </div>
     <div class="flex column content">
       <h4>Legacy</h4>
       <h3>Investing in what matters</h3>
@@ -11,9 +14,6 @@
       <div class="flex button-container">
         <nuxt-link to="/about" class="flex align-center btn-link">Learn more</nuxt-link>
       </div>
-    </div>
-    <div class="image-container">
-      <img src="/images/Polaroid.jpg">
     </div>
   </section>
 </template>
@@ -32,46 +32,54 @@
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr auto;
-    grid-gap: 1rem;
-    padding: 3rem 2rem;
+    grid-gap: 2rem;
+    padding: 2rem;
     background-color: color('white');
     color: color('blackLight');
 
-    @media (min-width: breaks(phone)) {
-      padding: 4rem 3rem;
+    @media (min-width: breaks(small-tablet)) {
+      grid-template-columns: 1fr 1fr;
     }
 
     @media (min-width: breaks(tablet)) {
-      grid-gap: 2rem;
-      grid-template-columns: 2fr 1fr;
+      grid-template-columns: 1fr 1fr;
       grid-template-rows: 1fr;
       padding: 3rem 2rem;
     }
 
     @media (min-width: breaks(laptop)) {
-      grid-template-columns: 1fr 1fr;
-      padding: 5rem;
-    }
-
-    @media (min-width: breaks(desktop)) {
-      grid-gap: 3rem;
+      padding: 4rem;
+      grid-gap: 4rem;
     }
 
     .image-container {
+      display: flex;
+      justify-content: center;
       width: 100%;
       margin: auto;
-      order: -1;
 
       img {
         box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
         transform: rotate(-5deg);
         margin: auto;
-        max-width: breaks(phone);
+        max-width: 200px;
         height: auto;
         width: 100%;
 
+        @media (min-width: breaks(phablet)) {
+          max-width: 250px;
+        }
+
         @media (min-width: breaks(tablet)) {
-          margin: 0;
+          max-width: 300px;
+        }
+
+        @media (min-width: breaks(desktop)) {
+          max-width: breaks(legacy-phone);
+        }
+
+        @media (min-width: breaks(desktop)) {
+          max-width: breaks(phone);
         }
       }
     }
@@ -87,8 +95,11 @@
       font-size: 1em;
       margin: auto;
 
-      @media (min-width: breaks(phone)) {
+      @media (min-width: breaks(small-tablet)) {
         font-size: 1.1em;
+        justify-content: initial;
+        align-items: initial;
+        text-align: initial;
       }
 
       @media (min-width: breaks(phablet)) {
@@ -97,10 +108,6 @@
 
       @media (min-width: breaks(tablet)) {
         font-size: 1.5em;
-        width: 50vw;
-        justify-content: initial;
-        align-items: initial;
-        text-align: initial;
       }
 
       @media (min-width: breaks(laptop)) {
@@ -109,10 +116,6 @@
 
       @media (min-width: breaks(desktop)) {
         font-size: 1.8em;
-      }
-
-      @media (min-width: breaks(desktop-wide)) {
-        font-size: 2em;
       }
     }
 
@@ -131,25 +134,13 @@
 
     h4 {
       font-weight: 900;
-      font-size: 0.5em;
-
-      @media (min-width: breaks(phone)) {
-        font-size: 0.6em;
-      }
-
-      @media (min-width: breaks(laptop)) {
-        font-size: 0.7em;
-      }
+      font-size: 0.7em;
     }
 
     p {
       margin-top: 0.5rem;
       width: 100%;
       font-size: 0.7em;
-
-      @media (min-width: breaks(tablet)) {
-        width: 80%;
-      }
 
       @media (min-width: breaks(laptop)) {
         margin-top: 1rem;
@@ -168,7 +159,7 @@
       background-color: color('primary');
       color: color('white');
       border-color: color('primary');
-      border-radius: 25px;
+      border-radius: 12px;
       padding: 0.5rem 1rem;
       font-weight: 600;
       font-size: 0.5em;

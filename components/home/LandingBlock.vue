@@ -112,6 +112,7 @@
           font-weight: 600;
           font-size: 0.5em;
           padding: 0.75rem 1rem;
+          border-radius: 12px;
 
           @media (min-width: breaks(small-tablet)) {
             padding: 0.75rem 1.5rem;
