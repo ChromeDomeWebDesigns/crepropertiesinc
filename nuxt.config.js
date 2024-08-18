@@ -1,14 +1,12 @@
-const contentful = require("contentful");
+import { CONTENTFUL_SPACE, CONTENTFUL_ACCESS_TOKEN } from "./lib/constants";
 
-/*
-TODO: Setup
-import { CONTENTFUL_SPACE, CONTENTFUL_ACCESS_TOKEN } from "@/lib/constants";
+// eslint-disable-next-line nuxt/no-cjs-in-config
+const contentful = require("contentful");
 
 const client = contentful.createClient({
  space: CONTENTFUL_SPACE,
  accessToken: CONTENTFUL_ACCESS_TOKEN
 });
-*/
 
 export default {
   // Target: https://go.nuxtjs.dev/config-target
@@ -88,19 +86,15 @@ export default {
     Sitemap: 'https://crepropertiesinc.com/sitemap.xml'
   },
 
-  /*
-  TODO: Setup
-  // This generates a route for every blog post
   generate: {
     routes() {
       return client.getEntries({
-        content_type: "blogPost"
+        content_type: "blogPostCRE"
       }).then(blogEntries => {
         return blogEntries.items.map(entry => `/blog/${entry.fields.slug}`)
       })
     }
   },
-  */
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {

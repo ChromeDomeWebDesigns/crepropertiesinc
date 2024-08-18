@@ -31,7 +31,7 @@ export const actions = {
       }
 
       const response = await client.getEntries({
-        content_type: 'blogPost',
+        content_type: 'blogPostCRE',
         order: '-sys.createdAt'
       })
 
