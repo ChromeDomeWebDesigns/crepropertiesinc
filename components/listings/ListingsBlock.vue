@@ -46,10 +46,6 @@
         font-size: 1.8em;
       }
 
-      @media (min-width: breaks(desktop)) {
-        font-size: 2em;
-      }
-
       h2 {
         font-weight: 900;
         font-size: 1.3em;

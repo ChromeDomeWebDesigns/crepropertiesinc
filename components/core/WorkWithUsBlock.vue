@@ -1,7 +1,7 @@
 <template>
   <section>
     <div class="flex column content">
-      <h1>Build your <span class="highlight">Family's Future</span> with Us!</h1>
+      <h2>Build your <span class="highlight">Family's Future</span> with Us!</h2>
       <p>Reach out today to learn how you can get involved or how we can help you grow.</p>
       <div class="flex button-container">
         <nuxt-link to="/about" class="flex align-center btn-link">Contact us</nuxt-link>
@@ -85,22 +85,18 @@
       @media (min-width: breaks(desktop)) {
         font-size: 1.8em;
       }
-
-      @media (min-width: breaks(desktop-wide)) {
-        font-size: 2em;
-      }
     }
 
-    h1 {
+    h2 {
       font-weight: 900;
-      font-size: 1.4em;
+      font-size: 1.3em;
 
       @media (min-width: breaks(phone)) {
-        font-size: 1.5em;
+        font-size: 1.4em;
       }
 
-      @media (min-width: breaks(laptop)) {
-        font-size: 2em;
+      @media (min-width: breaks(tablet)) {
+        font-size: 1.5em;
       }
 
 
