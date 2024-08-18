@@ -1,7 +1,7 @@
 <template>
   <div class="flex column flex-center">
     <h1>Blog</h1>
-    <p class="px-1 text-center">From Beginner to Expert Real Estate Investor, there is always something to learn here.</p>
+    <p class="px-1 text-center">From Beginner to Expert, there is always something to learn here.</p>
   </div>
 </template>
 
