@@ -151,7 +151,7 @@
       background-color: color('secondary');
       color: color('black');
       border-color: color('secondary');
-      border-radius: 25px;
+
       padding: 0.75rem 1.5rem;
       font-weight: 600;
       font-size: 0.5em;

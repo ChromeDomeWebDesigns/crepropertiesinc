@@ -166,7 +166,7 @@
       background-color: color('primary');
       color: color('white');
       border-color: color('primary');
-      border-radius: 25px;
+
       padding: 0.5rem 1rem;
       font-weight: 600;
       font-size: 0.5em;

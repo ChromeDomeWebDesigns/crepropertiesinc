@@ -1,10 +1,10 @@
 <template>
   <section>
     <div class="flex column content">
-      <h1>Supercharge Your Real Estate <span class="highlight">Investment Strategy</span> Today!</h1>
-      <p>Try out RE Analyzer for Free and find out if it is right for you before spending a dime.</p>
+      <h1>Build your <span class="highlight">Family's Future</span> with Us!</h1>
+      <p>Reach out today to learn how you can get involved or how we can help you grow.</p>
       <div class="flex button-container">
-        <a href="https://app.thereanalyzer.com/sign-up" class="flex align-center btn-link">Sign up</a>
+        <nuxt-link to="/about" class="flex align-center btn-link">Contact us</nuxt-link>
       </div>
     </div>
     <div class="image-container" />
@@ -135,7 +135,6 @@
       background-color: color('primary');
       color: color('white');
       border-color: color('primary');
-      border-radius: 25px;
       padding: 0.5rem 1rem;
       font-weight: 600;
       font-size: 0.5em;
