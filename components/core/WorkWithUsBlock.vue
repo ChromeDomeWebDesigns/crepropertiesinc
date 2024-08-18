@@ -1,16 +1,19 @@
 <template>
-<main>
-  <div class="page-margin w-100">
-    <div class="flex column flex-center content">
-      <h2>Work with Us</h2>
+  <section>
+    <div class="flex column content">
+      <h1>Supercharge Your Real Estate <span class="highlight">Investment Strategy</span> Today!</h1>
+      <p>Try out RE Analyzer for Free and find out if it is right for you before spending a dime.</p>
+      <div class="flex button-container">
+        <a href="https://app.thereanalyzer.com/sign-up" class="flex align-center btn-link">Sign up</a>
+      </div>
     </div>
-  </div>
-</main>
+    <div class="image-container" />
+  </section>
 </template>
 
 <script>
   export default {
-    name: 'WorkWithUsBlock'
+    name: 'WorkWithUsBlock',
   }
 </script>
 
@@ -18,14 +21,47 @@
   @import './assets/styles/colors';
   @import './assets/styles/breaks';
 
-  main {
+  section {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr auto;
+    grid-gap: 0;
     background-color: color('white');
+    color: color('blackLight');
+
+    @media (min-width: breaks(tablet)) {
+      grid-gap: 2rem;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr;
+    }
+
+    @media (min-width: breaks(desktop)) {
+      grid-gap: 3rem;
+    }
+
+    .image-container {
+      height: 100%;
+      background-color: color('primary');
+      background-image: url('/images/Get_Started.jpg');
+      background-size: cover;
+      background-position: center;
+    }
 
     .content {
+      width: 100%;
+      max-width: breaks(tablet);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
       font-size: 1em;
+      margin: auto;
+      padding: 2rem;
 
       @media (min-width: breaks(phone)) {
         font-size: 1.1em;
+        padding: 3rem;
       }
 
       @media (min-width: breaks(phablet)) {
@@ -34,37 +70,83 @@
 
       @media (min-width: breaks(tablet)) {
         font-size: 1.5em;
+        width: 50vw;
+        justify-content: initial;
+        align-items: initial;
+        text-align: initial;
+        padding: 2rem;
       }
 
       @media (min-width: breaks(laptop)) {
-        font-size: 1.8em;
+        font-size: 1.6em;
+        padding: 3rem;
       }
 
       @media (min-width: breaks(desktop)) {
-        font-size: 2em;
+        font-size: 1.8em;
       }
 
-      h2 {
-        font-weight: 900;
-        font-size: 1.3em;
-        margin-bottom: 2rem;
-        color: color('primary');
-
-        @media (min-width: breaks(phone)) {
-          font-size: 1.4em;
-        }
-
-        @media (min-width: breaks(tablet)) {
-          font-size: 1.5em;
-        }
+      @media (min-width: breaks(desktop-wide)) {
+        font-size: 2em;
       }
     }
 
-    .page-margin {
-      padding: 2rem;
+    h1 {
+      font-weight: 900;
+      font-size: 1.4em;
 
       @media (min-width: breaks(phone)) {
-        padding: 3rem;
+        font-size: 1.5em;
+      }
+
+      @media (min-width: breaks(laptop)) {
+        font-size: 2em;
+      }
+
+
+      .highlight {
+        color: color('primary');
+      }
+    }
+
+    p {
+      margin-top: 0.5rem;
+      width: 100%;
+      font-size: 0.7em;
+
+      @media (min-width: breaks(tablet)) {
+        width: 80%;
+      }
+
+      @media (min-width: breaks(laptop)) {
+        margin-top: 1rem;
+      }
+    }
+
+    .button-container {
+      margin-top: 1rem;
+
+      @media (min-width: breaks(laptop)) {
+        margin-top: 2rem;
+      }
+    }
+
+    .btn-link {
+      background-color: color('primary');
+      color: color('white');
+      border-color: color('primary');
+      border-radius: 25px;
+      padding: 0.5rem 1rem;
+      font-weight: 600;
+      font-size: 0.5em;
+
+      @media (min-width: breaks(tablet)) {
+        padding: 0.75rem 1.5rem;
+      }
+
+      &:hover {
+        background-color: lighten(color('primary'), 10%);
+        border-color: lighten(color('primary'), 10%);
       }
     }
   }
