@@ -2,15 +2,21 @@
 <main>
   <div class="page-margin w-100">
     <div class="flex column flex-center content">
-      <h2>Properties</h2>
+      <h2>Listings</h2>
+      <listings-empty-state />
     </div>
   </div>
 </main>
 </template>
 
 <script>
+  import ListingsEmptyState from './ListingsEmptyState'
+
   export default {
-    name: 'PropertiesBlock'
+    name: 'ListingsBlock',
+    components: {
+      ListingsEmptyState
+    }
   }
 </script>
 
@@ -48,7 +54,7 @@
         font-weight: 900;
         font-size: 1.3em;
         margin-bottom: 2rem;
-        color: color('blackLight');
+        color: color('white');
 
         @media (min-width: breaks(phone)) {
           font-size: 1.4em;

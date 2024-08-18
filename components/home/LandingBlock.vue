@@ -7,7 +7,7 @@
           <p>Located in St. Louis, MO we are dedicated to treating our clients and tenants as one of our own.</p>
         </section>
         <div class="button-container">
-          <nuxt-link to="/properties" class="flex align-center btn-link alt">View properties</nuxt-link>
+          <nuxt-link to="/listings" class="flex align-center btn-link alt">View listings</nuxt-link>
           <nuxt-link to="/contact" class="flex align-center btn-link">Contact us</nuxt-link>
         </div>
       </div>
@@ -112,7 +112,7 @@
           font-weight: 600;
           font-size: 0.5em;
           padding: 0.75rem 1rem;
-          border-radius: 12px;
+
 
           @media (min-width: breaks(small-tablet)) {
             padding: 0.75rem 1.5rem;

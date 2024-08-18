@@ -4,7 +4,7 @@
     <article>
       <landing-block />
       <about-us-block />
-      <properties-block />
+      <listings-block />
       <meet-the-team-block />
       <blog-block />
       <work-with-us-block />
@@ -17,7 +17,7 @@
 import TopNav from '@/components/TopNav'
 import LandingBlock from '@/components/home/LandingBlock'
 import AboutUsBlock from '@/components/home/AboutUsBlock'
-import PropertiesBlock from '@/components/home/PropertiesBlock'
+import ListingsBlock from '@/components/listings/ListingsBlock'
 import MeetTheTeamBlock from '@/components/core/MeetTheTeamBlock'
 import BlogBlock from '@/components/blog/BlogBlock'
 import WorkWithUsBlock from '@/components/core/WorkWithUsBlock'
@@ -29,7 +29,7 @@ export default {
     TopNav,
     LandingBlock,
     AboutUsBlock,
-    PropertiesBlock,
+    ListingsBlock,
     MeetTheTeamBlock,
     BlogBlock,
     WorkWithUsBlock,

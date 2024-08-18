@@ -11,7 +11,7 @@
         <nav class="links w-100">
           <nuxt-link to="/home">Home</nuxt-link>
           <nuxt-link to="/about">About</nuxt-link>
-          <nuxt-link to="/properties">Properties</nuxt-link>
+          <nuxt-link to="/listings">Listings</nuxt-link>
           <nuxt-link to="/blog">Blog</nuxt-link>
           <nuxt-link class="right" to="/contact">Contact Us</nuxt-link>
           <a href="https://app.thereanalyzer.com/login" class="btn-link">Tenant Portal</a>
@@ -102,7 +102,7 @@
         background-color: color('primary');
         color: color('white');
         border-color: color('primary');
-        border-radius: 12px;
+
         padding: 0.5rem 1rem;
         font-weight: 600;
         margin-left: 1rem;

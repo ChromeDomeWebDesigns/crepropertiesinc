@@ -5,7 +5,7 @@
     </nuxt-link>
     <div>
       <nuxt-link to="/about" class="link">About</nuxt-link>
-      <nuxt-link to="/properties" class="link">Properties</nuxt-link>
+      <nuxt-link to="/listings" class="link">Listings</nuxt-link>
       <nuxt-link to="/blog" class="link">Blog</nuxt-link>
       <nuxt-link to="/contact" class="link">Contact</nuxt-link>
       <a href="https://app.thereanalyzer.com/login" class="link">Tenant Portal</a>
