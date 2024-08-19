@@ -6,8 +6,8 @@
       <div class="popper">
         <label class="bold">Beds</label>
         <div class="flex align-center">
-          <input v-model="formData.min" placeholder="Min" type="number" :class="{ 'error': errors.min }" />
-          <input v-model="formData.max" placeholder="Max" type="number" :class="{ 'error': errors.max }" />
+          <input v-model="formData.min" placeholder="Min" type="number" pattern="\d*" :class="{ 'error': errors.min }" />
+          <input v-model="formData.max" placeholder="Max" type="number" pattern="\d*" :class="{ 'error': errors.max }" />
         </div>
 
         <p v-if="errorMessage" class="error-message">{{ errorMessage }}</p>
@@ -92,7 +92,6 @@
     font-weight: 600;
     font-size: 0.8em;
     padding: 0.75rem 1.5rem;
-    margin: 0 0.5rem;
 
     &:hover,
     &:active,

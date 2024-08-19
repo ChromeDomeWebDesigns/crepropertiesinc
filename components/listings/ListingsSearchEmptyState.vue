@@ -8,7 +8,7 @@
 
 <script>
   export default {
-    name: 'ListingsEmptyState'
+    name: 'ListingsBlockEmptyState'
   }
 </script>
 
@@ -17,10 +17,17 @@
   @import './assets/styles/breaks';
 
   div {
+    font-size: 2em;
+    margin: 3rem auto 0 auto;
+    max-width: breaks(tablet);
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     background-color: color('white');
-    padding: 5rem;
+    padding: 10rem 2rem;
     color: color('primary');
+
+    @media (min-width: breaks(phablet)) {
+      padding: 10rem 5rem;
+    }
 
     i {
       font-size: 1.8em;

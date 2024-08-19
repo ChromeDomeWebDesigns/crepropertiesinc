@@ -3,19 +3,19 @@
   <div class="page-margin w-100">
     <div class="flex column flex-center content">
       <h2>Listings</h2>
-      <listings-empty-state />
+      <listings-block-empty-state />
     </div>
   </div>
 </main>
 </template>
 
 <script>
-  import ListingsEmptyState from './ListingsEmptyState'
+  import ListingsBlockEmptyState from './ListingsBlockEmptyState'
 
   export default {
     name: 'ListingsBlock',
     components: {
-      ListingsEmptyState
+      ListingsBlockEmptyState
     }
   }
 </script>

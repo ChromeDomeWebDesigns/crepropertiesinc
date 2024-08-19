@@ -47,7 +47,6 @@
     font-weight: 600;
     font-size: 0.8em;
     padding: 0.75rem 1.5rem;
-    margin: 0 0.5rem;
 
     &:hover,
     &:active,

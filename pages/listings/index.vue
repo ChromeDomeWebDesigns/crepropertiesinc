@@ -34,7 +34,6 @@ export default {
   @import './assets/styles/colors';
 
   article {
-    min-height: 100vh;
     background-color: color('white');
     color: color('black');
   }
