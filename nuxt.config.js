@@ -49,6 +49,7 @@ export default {
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     { src: '@/plugins/vue-lightbox', mode: 'client' },
+    { src: '@/plugins/floating-vue', mode: 'client' },
     { src: '@/plugins/contentful' },
     { src: '@/plugins/content' }
   ],
