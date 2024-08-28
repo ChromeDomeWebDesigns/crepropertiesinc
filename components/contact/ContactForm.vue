@@ -83,7 +83,7 @@
 
         return !Object.values(this.errors).some(err => err)
       },
-      async trySubmit() {
+      async trySubmit(event) {
         if (!this.validateForm()) {
           this.response = {
             type: 'error',
