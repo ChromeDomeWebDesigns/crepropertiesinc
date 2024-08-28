@@ -25,7 +25,7 @@
   section {
     min-height: 100vh;
     max-width: breaks(laptop);
-    margin: 5rem auto 0 auto;
+    margin: 0 auto;
     padding: 3rem 1rem;
     background-color: color('greyVLight');
 
