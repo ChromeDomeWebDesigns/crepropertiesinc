@@ -14,7 +14,7 @@
           <nuxt-link to="/listings">Listings</nuxt-link>
           <nuxt-link to="/blog">Blog</nuxt-link>
           <nuxt-link class="right" to="/contact">Contact Us</nuxt-link>
-          <a href="https://app.thereanalyzer.com/login" class="btn-link">Tenant Portal</a>
+          <a href="https://renter.turbotenant.com" class="btn-link">Tenant Portal</a>
         </nav>
       </div>
     </div>
