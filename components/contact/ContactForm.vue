@@ -10,15 +10,15 @@
     @submit.prevent="trySubmit"
   >
     <div class="mb-1">
-      <input id="name" v-model="formData.name" :class="{ 'error': errors.name }" type="text" placeholder="Name" />
+      <input id="name" v-model="formData.name" name="name" :class="{ 'error': errors.name }" type="text" placeholder="Name" />
       <p v-if="errors.name" class="error-message">{{ errors.name }}</p>
     </div>
     <div class="mb-1">
-      <input id="email" v-model="formData.email" :class="{ 'error': errors.email }" type="text" placeholder="Email" />
+      <input id="email" v-model="formData.email" name="email" :class="{ 'error': errors.email }" type="text" placeholder="Email" />
       <p v-if="errors.email" class="error-message">{{ errors.email }}</p>
     </div>
     <div class="mb-1">
-      <textarea id="message" v-model="formData.message" :class="{ 'error': errors.message }" type="text" placeholder="Message" />
+      <textarea id="message" v-model="formData.message" name="message" :class="{ 'error': errors.message }" type="text" placeholder="Message" />
       <p v-if="errors.message" class="error-message">{{ errors.message }}</p>
     </div>
 
