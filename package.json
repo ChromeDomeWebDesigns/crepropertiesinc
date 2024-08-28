@@ -4,7 +4,6 @@
   "private": true,
   "scripts": {
     "dev": "nuxt",
-    "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate",
     "lint:js": "eslint --ext \".js,.vue\" --ignore-path .gitignore .",
@@ -13,9 +12,15 @@
     "lintfix": "prettier --write --list-different . && npm run lint:js -- --fix"
   },
   "dependencies": {
+    "@nuxtjs/markdownit": "^2.0.0",
+    "@nuxtjs/robots": "^2.5.0",
+    "@nuxtjs/sitemap": "^2.4.0",
+    "contentful": "^9.2.4",
     "core-js": "^3.19.3",
+    "floating-vue": "^1.0.0-beta.18",
     "nuxt": "^2.15.8",
     "vue": "^2.6.14",
+    "vue-my-photos": "^1.1.1",
     "vue-server-renderer": "^2.6.14",
     "vue-template-compiler": "^2.6.14",
     "webpack": "^4.46.0"
@@ -28,6 +33,8 @@
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-nuxt": "^3.1.0",
     "eslint-plugin-vue": "^8.2.0",
+    "fibers": "^5.0.0",
+    "nodemon": "^2.0.12",
     "prettier": "^2.5.1",
     "sass": "^1.52.3",
     "sass-loader": "10.2"
