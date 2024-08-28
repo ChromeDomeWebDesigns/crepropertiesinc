@@ -13,7 +13,7 @@
         <p>
           We understand that real estate is not just about transactions, it's about people, dreams, and the future.
           That's why we bring a family-first mindset into every deal we make.
-          Whether you're buying your first home, expanding your investment portfolio, or looking for the perfect property for your business, we are committed to supporting you every step of the way.
+          Whether you're leasing your first apartment, expanding your investment portfolio, or looking for the perfect property for your business, we are committed to supporting you every step of the way.
           We take pride in making sure that you feel valued, understood, and confident in every decision.
         </p>
       </div>
@@ -33,8 +33,8 @@
           In a crowded market, we stand apart by focusing on what matters most: you.
           Our approach is personal, and our dedication is unwavering.
           We don't just want to close deals, we want to build relationships that last.
-          Our clients trust us not only because of our expertise but because of the care and attention we put into every interaction.
-          With CRE Properties, you're not just a client, you're part of our family.
+          Our clients and tenants trust us not only because of our expertise but because of the care and attention we put into every interaction.
+          With CRE Properties, you're not just a customer, you're part of our family.
         </p>
 
         <h3 class="right">Join Us in Building a Secure Future</h3>

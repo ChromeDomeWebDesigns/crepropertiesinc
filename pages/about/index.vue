@@ -4,7 +4,7 @@
     <article>
       <about-header />
       <about-main-content />
-      <meet-the-team-block :link="false" />
+      <meet-the-team-block :link="false" :inverse="true" />
       <work-with-us-block />
     </article>
     <bottom-footer />

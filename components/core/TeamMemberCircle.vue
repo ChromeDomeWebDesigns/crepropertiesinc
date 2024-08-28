@@ -1,5 +1,5 @@
 <template>
-  <div class="flex column align-center member-container">
+  <div class="flex column align-center member-container" :class="{ 'inverse': inverse }">
     <div class="image-container mb-1" :style="memberImage"></div>
     <div class="text-center bio">
       <p class="bold name">{{ member.name }}</p>
@@ -16,6 +16,11 @@
       member: {
         type: Object,
         required: true
+      },
+      inverse: {
+        type: Boolean,
+        required: false,
+        default: false
       }
     },
     computed: {
@@ -40,56 +45,67 @@
     @media (min-width: breaks(large-tablet)) {
       margin: 0 4rem;
     }
-  }
 
+    &.inverse {
+      .image-container {
+        border: 3px solid color('white');
+      }
 
-  .image-container {
-    background-color: color('white');
-    border-radius: 50%;
-    border: 3px solid color('blackLight');
-    height: 8rem;
-    width: 8rem;
-    background-position: top center;
-    background-size: cover;
-    background-repeat: no-repeat;
-
-    @media (min-width: breaks(phone)) {
-      border: 5px solid color('blackLight');
-      height: 10rem;
-      width: 10rem;
+      .bio {
+        .name {
+          color: color('white');
+        }
+      }
     }
 
-    @media (min-width: breaks(phablet)) {
-      height: 13rem;
-      width: 13rem;
-    }
-  }
-
-  .bio {
-    max-width: 20rem;
-
-    p {
-      font-size: 0.8em;
+    .image-container {
+      background-color: color('white');
+      border-radius: 50%;
+      border: 3px solid color('blackLight');
+      height: 8rem;
+      width: 8rem;
+      background-position: top center;
+      background-size: cover;
+      background-repeat: no-repeat;
 
       @media (min-width: breaks(phone)) {
-        font-size: 0.9em;
+        border: 5px solid color('blackLight');
+        height: 10rem;
+        width: 10rem;
       }
 
       @media (min-width: breaks(phablet)) {
-        font-size: 1em;
+        height: 13rem;
+        width: 13rem;
       }
     }
 
-    .name {
-      font-size: 1.1em;
-      color: color('blackLight');
+    .bio {
+      max-width: 20rem;
 
-      @media (min-width: breaks(phone)) {
-        font-size: 1.2em;
+      p {
+        font-size: 0.8em;
+
+        @media (min-width: breaks(phone)) {
+          font-size: 0.9em;
+        }
+
+        @media (min-width: breaks(phablet)) {
+          font-size: 1em;
+        }
       }
 
-      @media (min-width: breaks(phablet)) {
-        font-size: 1.4em;
+      .name {
+        font-size: 1.1em;
+        color: color('blackLight');
+
+        @media (min-width: breaks(phone)) {
+          font-size: 1.2em;
+        }
+
+        @media (min-width: breaks(phablet)) {
+          font-size: 1.4em;
+        }
       }
     }
   }

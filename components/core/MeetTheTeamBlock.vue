@@ -1,12 +1,12 @@
 <template>
-<section>
+<section :class="{ 'inverse': inverse }">
   <div class="page-margin w-100">
     <div class="flex column align-center content mb-2">
       <h2>Meet the Team</h2>
       <p class="text-center">Meet the husband and wife team behind CRE Properties and its family-first approach to Real Estate Investing. <nuxt-link v-if="link" to="/about" class="nowrap">Learn More</nuxt-link></p>
     </div>
     <div class="flex justify-center">
-      <team-member-circle v-for="member in members" :key="member.name" :member="member" />
+      <team-member-circle v-for="member in members" :key="member.name" :member="member" :inverse="inverse" />
     </div>
   </div>
 </section>
@@ -25,6 +25,11 @@
         type: Boolean,
         required: false,
         default: true
+      },
+      inverse: {
+        type: Boolean,
+        required: false,
+        default: false
       }
     },
     data() {
@@ -55,6 +60,17 @@
   section {
     background-color: color('white');
     color: color('blackLight');
+
+    &.inverse {
+      background-color: color('primary');
+      color: color('white');
+
+      .content {
+        h2 {
+          color: color('white');
+        }
+      }
+    }
 
     .content {
       font-size: 1em;
