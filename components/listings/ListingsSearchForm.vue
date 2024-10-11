@@ -10,7 +10,7 @@
   import ListingsSearchBar from './ListingsSearchBar'
   import ListingsGrid from './ListingsGrid'
   import ListingsSearchEmptyState from './ListingsSearchEmptyState'
-  import { MOCK_LISTINGS } from '@/lib/mockListings.js'
+  import { MOCK_LISTINGS } from '@/lib/listings'
 
   export default {
     name: 'ListingsSearchForm',

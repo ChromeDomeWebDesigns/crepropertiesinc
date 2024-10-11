@@ -1,6 +1,8 @@
 <template>
-  <div>
-    <listing-card v-for="listing in listings" :key="listing.id" :listing="listing" />
+  <div class="listings-grid">
+    <nuxt-link v-for="listing in listings" :key="listing.id" :to="`/listings/${listing.id}`">
+      <listing-card :listing="listing" />
+    </nuxt-link>
   </div>
 </template>
 
@@ -23,5 +25,16 @@
 </script>
 
 <style lang="scss" scoped>
+  @import './assets/styles/breaks';
 
+  .listings-grid {
+    display: grid;
+    grid-auto-columns: 1fr;
+    margin: 2rem 0;
+    gap: 1rem;
+
+    @media (min-width: breaks(phablet)) {
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+  }
 </style>
