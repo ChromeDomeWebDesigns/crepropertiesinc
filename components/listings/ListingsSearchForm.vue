@@ -1,19 +1,31 @@
 <template>
   <section>
     <listings-search-bar />
-    <listings-search-empty-state />
+    <listings-grid v-if="showListings" :listings="listings" />
+    <listings-search-empty-state v-else />
   </section>
 </template>
 
 <script>
   import ListingsSearchBar from './ListingsSearchBar'
+  import ListingsGrid from './ListingsGrid'
   import ListingsSearchEmptyState from './ListingsSearchEmptyState'
+  import { MOCK_LISTINGS } from '@/lib/mockListings.js'
 
   export default {
     name: 'ListingsSearchForm',
     components: {
       ListingsSearchBar,
+      ListingsGrid,
       ListingsSearchEmptyState
+    },
+    computed: {
+      listings() {
+        return MOCK_LISTINGS
+      },
+      showListings() {
+        return this.listings.length > 0
+      }
     }
   }
 </script>
