@@ -12,7 +12,7 @@
 
       <div class="flex align-center button-container">
         <nuxt-link to="/contact" class="btn-link mr-50 text-center flex-1">Request Information</nuxt-link>
-        <a :to="fields.applicationLink" class="btn-link alt text-center flex-1">Apply Online</a>
+        <a :href="fields.applicationLink" class="btn-link alt text-center flex-1">Apply Online</a>
       </div>
     </div>
 
