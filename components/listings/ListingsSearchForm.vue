@@ -1,6 +1,8 @@
 <template>
   <section>
-    <listings-search-bar :filters="filters" @update="updateFilters" />
+    <client-only>
+      <listings-search-bar :filters="filters" @update="updateFilters" />
+    </client-only>
     <template v-if="showListings">
       <listings-grid :listings="listings" />
     </template>
