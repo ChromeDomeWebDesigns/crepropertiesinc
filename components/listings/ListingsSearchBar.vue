@@ -6,7 +6,7 @@
       <bath-filter :filter="filters.baths" class="filter" @update="$emit('update', { baths: arguments[0] })"  />
       <status-filter :filter="filters.status" class="filter" @update="$emit('update', { status: arguments[0] })" />
     </div>
-    <input placeholder="Search by address, city, state, or zip code" class="search" />
+    <input v-model="search" placeholder="Search by address, city, state, or zip code" class="search" />
   </div>
 </template>
 
@@ -28,6 +28,16 @@
       filters: {
         type: Object,
         required: true
+      }
+    },
+    computed: {
+      search: {
+        get() {
+          return this.filters.search
+        },
+        set(val) {
+          this.$emit('update', { search: val })
+        }
       }
     }
   }
