@@ -16,7 +16,7 @@
       </div>
     </div>
 
-    <div class="core-details details-row">
+    <div class="core-details details-grid">
       <div>
         <label>Bedrooms</label>
         <p>{{ listing.beds }} bd.</p>
@@ -185,26 +185,6 @@
       }
     }
 
-    .details-row {
-      display: flex;
-      align-items: center;
-      flex-wrap: wrap;
-      grid-gap: 1rem;
-
-      > div {
-        flex: 1;
-        margin: 0 0.5rem;
-
-        &:first-child {
-          margin: 0 0.5rem 0 0;
-        }
-
-        &:last-child {
-          margin: 0 0 0 0.5rem;
-        }
-      }
-    }
-
     .details-grid {
       display: grid;
       grid-auto-columns: 1fr;
@@ -213,26 +193,10 @@
     }
 
     .core-details {
-      display: flex;
-      align-items: center;
-      flex-wrap: wrap;
-      grid-gap: 1rem;
       font-size: 1.5em;
       padding: 2rem 0;
       border-bottom: 1px solid color('grey');
-
-      > div {
-        flex: 1;
-        margin: 0 0.5rem;
-
-        &:first-child {
-          margin: 0 0.5rem 0 0;
-        }
-
-        &:last-child {
-          margin: 0 0 0 0.5rem;
-        }
-      }
+      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
 
       label {
         font-size: 0.7em;
