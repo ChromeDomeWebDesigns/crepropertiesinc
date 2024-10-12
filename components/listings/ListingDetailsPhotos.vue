@@ -1,24 +1,25 @@
 <template>
   <div>
     <template v-if="singlePhoto">
-      <div class="single-image-container" :style="`background-image: url('${mainPhoto}')`" @click="showLightbox(mainPhoto)" />
+      <div class="single-image-container" :style="`background-image: url('${mainPhoto}')`" @click="showLightbox(0)" />
     </template>
     <template v-else>
       <div class="multi-image-grid">
         <div v-for="(image, index) in headerImages" :key="index" class="multi-image-container" :class="index === 0 ? 'grid-main' : `grid-${index}`">
-          <img :src="image" @click="showLightbox(image)" />
+          <img :src="image" @click="showLightbox(index)" />
 
-          <button v-if="index === 0" class="see-all-button show-main" @click="showLightbox(mainPhoto)"><i class="fas fa-th-large" /> <span class="ml-25">See all {{ images.length }} photos</span></button>
-          <button v-if="index === 2" class="see-all-button show-3" @click="showLightbox(mainPhoto)"><i class="fas fa-th-large" /> <span class="ml-25">See all {{ images.length }} photos</span></button>
-          <button v-if="index === 4" class="see-all-button show-5" @click="showLightbox(mainPhoto)"><i class="fas fa-th-large" /> <span class="ml-25">See all {{ images.length }} photos</span></button>
+          <button v-if="index === 0" class="see-all-button show-main" @click="showLightbox(index)"><i class="fas fa-th-large" /> <span class="ml-25">See all {{ images.length }} photos</span></button>
+          <button v-if="index === 2" class="see-all-button show-3" @click="showLightbox(index)"><i class="fas fa-th-large" /> <span class="ml-25">See all {{ images.length }} photos</span></button>
+          <button v-if="index === 4" class="see-all-button show-5" @click="showLightbox(index)"><i class="fas fa-th-large" /> <span class="ml-25">See all {{ images.length }} photos</span></button>
         </div>
       </div>
     </template>
     <client-only>
-      <lightbox
-        id="listing-photos"
-        ref="lightbox"
-        :images="lightboxImages"
+      <vue-easy-lightbox
+        :imgs="images"
+        :visible="lightboxVisible"
+        :index="lightboxIndex"
+        @hide="lightboxVisible = false"
       />
     </client-only>
   </div>
@@ -34,6 +35,12 @@
         default: () => []
       }
     },
+    data() {
+      return {
+        lightboxIndex: 0,
+        lightboxVisible: false
+      }
+    },
     computed: {
       mainPhoto() {
         return this.images[0] || this.$options.PLACEHOLDER_IMAGE
@@ -44,24 +51,11 @@
       headerImages() {
         return this.images.slice(0, 5);
       },
-      lightboxImages() {
-        const lightboxImages = []
-
-        this.images.forEach(image => {
-          lightboxImages.push({
-            name: image,
-            id: image
-          })
-        })
-
-        return lightboxImages
-      }
     },
     methods: {
-      showLightbox(image) {
-        if (process.client && this.$refs.lightbox) {
-          this.$refs.lightbox.show(image)
-        }
+      showLightbox(index) {
+        this.lightboxIndex = index
+        this.lightboxVisible = true
       }
     },
     PLACEHOLDER_IMAGE: '/images/Placeholder.jpg'
