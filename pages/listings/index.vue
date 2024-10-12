@@ -1,28 +1,20 @@
 <template>
-  <div id="app">
-    <top-nav />
-    <article>
-      <listings-header />
-      <listings-search-form />
-    </article>
-    <bottom-footer />
-  </div>
+  <article>
+    <listings-header />
+    <listings-search-form />
+  </article>
 </template>
 
 <script>
 import { headBuilder } from '@/lib/seo'
-import TopNav from '@/components/TopNav';
 import ListingsHeader from '@/components/listings/ListingsHeader'
 import ListingsSearchForm from '@/components/listings/ListingsSearchForm'
-import BottomFooter from '@/components/BottomFooter'
 
 export default {
   name: 'ListingsView',
   components: {
-    TopNav,
     ListingsHeader,
     ListingsSearchForm,
-    BottomFooter
   },
   head() {
     const title = 'Listings | CRE Properties'

@@ -89,11 +89,19 @@ export default {
 
   generate: {
     routes() {
-      return client.getEntries({
-        content_type: "blogPostCRE"
-      }).then(blogEntries => {
-        return blogEntries.items.map(entry => `/blog/${entry.fields.slug}`)
-      })
+      return Promise.all([
+        client.getEntries({
+          content_type: "blogPostCRE"
+        }),
+        client.getEntries({
+          content_type: "listings"
+        }),
+      ]).then(([blogEntries, listingEntries]) => {
+        return [
+          ...blogEntries.items.map(entry => `/blog/${entry.fields.slug}`),
+          ...listingEntries.items.map(entry => `/listings/${entry.sys.id}`)
+        ];
+      });
     }
   },
 

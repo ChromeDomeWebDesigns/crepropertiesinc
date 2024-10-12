@@ -1,14 +1,29 @@
 <template>
   <div class="text-center">
     <i class="fas fa-home" />
-    <h4>No current listings</h4>
-    <p class="italic">Be sure to check back later!</p>
+    <h4>{{ title }}</h4>
+    <p class="italic">{{ subTitle }}</p>
   </div>
 </template>
 
 <script>
   export default {
-    name: 'ListingsBlockEmptyState'
+    name: 'ListingsBlockEmptyState',
+    props: {
+      hasFilters: {
+        type: Boolean,
+        required: false,
+        default: false
+      }
+    },
+    computed: {
+      title() {
+        return this.hasFilters ? 'No search results' : 'No current listings'
+      },
+      subTitle() {
+        return this.hasFilters ? 'Try changing the filters' : 'Be sure to check back later!'
+      }
+    }
   }
 </script>
 

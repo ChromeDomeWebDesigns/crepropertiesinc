@@ -1,14 +1,10 @@
 <template>
-  <div id="app">
-    <top-nav />
-    <article>
-      <blog-post-header :title="title" />
-      <blog-post :post="post" />
-      <blog-block />
-      <work-with-us-block />
-    </article>
-    <bottom-footer />
-  </div>
+  <article>
+    <blog-post-header :title="title" />
+    <blog-post :post="post" />
+    <blog-block />
+    <work-with-us-block />
+  </article>
 </template>
 
 <script>

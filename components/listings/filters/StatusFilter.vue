@@ -1,14 +1,12 @@
 <template>
   <v-dropdown @auto-hide="update">
-    <button class="toggle" :class="{ 'active': type !== 'all' }">Type</button>
+    <button class="toggle" :class="{ 'active': status }">Status</button>
 
     <template #popper>
       <div class="popper">
-        <label class="bold">Type</label>
-        <button class="option" :class="{ 'active': type === 'all' }" @click="setType('all')">All</button>
-        <button class="option" :class="{ 'active': type === 'lease' }" @click="setType('lease')">For Lease</button>
-        <button class="option" :class="{ 'active': type === 'sale' }"  @click="setType('sale')">For Sale</button>
-
+        <label class="bold">Status</label>
+        <button class="option" :class="{ 'active': !status }" @click="setStatus(null)">All</button>
+        <button v-for="listingStatus in $options.LISTING_STATUS_TYPE_ARRAY" :key="listingStatus.value" class="option" :class="{ 'active': status === listingStatus.value }" @click="setStatus(listingStatus.value)">{{ listingStatus.label }}</button>
         <button class="save" @click="update">Save and close</button>
       </div>
     </template>
@@ -17,23 +15,32 @@
 
 <script>
   import { hideAllPoppers } from 'floating-vue'
+  import { LISTING_STATUS_TYPE_ARRAY } from '@/lib/listings'
 
   export default {
-    name: 'TypeFilter',
+    name: 'StatusFilter',
+    props: {
+      filter: {
+        type: String,
+        required: false,
+        default: null
+      }
+    },
     data() {
       return {
-        type: 'all',
+        status: this.filter,
       }
     },
     methods: {
-      setType(type) {
-        this.type = type
+      setStatus(status) {
+        this.status = status
       },
       update() {
-        this.$emit('update', { type: this.type })
+        this.$emit('update', this.status)
         hideAllPoppers()
       }
-    }
+    },
+    LISTING_STATUS_TYPE_ARRAY
   }
 </script>
 

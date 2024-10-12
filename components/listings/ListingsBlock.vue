@@ -1,21 +1,39 @@
 <template>
-<main>
+<section>
   <div class="page-margin w-100">
     <div class="flex column flex-center content">
       <h2>Listings</h2>
-      <listings-block-empty-state />
     </div>
+    <template v-if="showListings">
+      <listings-grid :listings="listings" />
+    </template>
+    <listings-block-empty-state v-else />
   </div>
-</main>
+</section>
 </template>
 
 <script>
+  import { mapGetters } from 'vuex'
+  import ListingsGrid from './ListingsGrid'
   import ListingsBlockEmptyState from './ListingsBlockEmptyState'
 
   export default {
     name: 'ListingsBlock',
     components: {
+      ListingsGrid,
       ListingsBlockEmptyState
+    },
+    computed: {
+      ...mapGetters({ getSubsetOfListings: 'listings/getSubsetOfListings' }),
+      listings() {
+        return this.getSubsetOfListings(4)
+      },
+      hasNextPage() {
+        return this.blogPosts.length > 4
+      },
+      showListings() {
+        return this.listings.length > 0
+      }
     }
   }
 </script>
@@ -24,7 +42,7 @@
   @import './assets/styles/colors';
   @import './assets/styles/breaks';
 
-  main {
+  section {
     background-color: color('primary');
 
     .content {
