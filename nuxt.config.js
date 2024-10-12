@@ -99,7 +99,7 @@ export default {
       ]).then(([blogEntries, listingEntries]) => {
         return [
           ...blogEntries.items.map(entry => `/blog/${entry.fields.slug}`),
-          ...listingEntries.items.map(entry => `/listings/${entry.sys.id}`)
+          ...listingEntries.items.map(entry => `/listings/${entry.fields.id}`)
         ];
       });
     }

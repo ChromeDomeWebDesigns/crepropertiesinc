@@ -45,7 +45,7 @@ export const getters = {
       return null
     }
 
-    return state.listings.find(listing => listing.sys.id === id)
+    return state.listings.find(listing => listing.fields.id === id)
   },
 }
 
