@@ -1,6 +1,6 @@
 <template>
   <div class="listings-grid">
-    <nuxt-link v-for="listing in listings" :key="listing.id" :to="`/listings/${listing.id}`">
+    <nuxt-link v-for="listing in listings" :key="listing.sys.id" :to="`/listings/${listing.sys.id}`">
       <listing-card :listing="listing" />
     </nuxt-link>
   </div>

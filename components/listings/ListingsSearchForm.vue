@@ -1,16 +1,18 @@
 <template>
   <section>
     <listings-search-bar />
-    <listings-grid v-if="showListings" :listings="listings" />
+    <template v-if="showListings">
+      <listings-grid :listings="listings" />
+    </template>
     <listings-search-empty-state v-else />
   </section>
 </template>
 
 <script>
+  import { mapGetters } from 'vuex'
   import ListingsSearchBar from './ListingsSearchBar'
   import ListingsGrid from './ListingsGrid'
   import ListingsSearchEmptyState from './ListingsSearchEmptyState'
-  import { MOCK_LISTINGS } from '@/lib/listings'
 
   export default {
     name: 'ListingsSearchForm',
@@ -20,8 +22,12 @@
       ListingsSearchEmptyState
     },
     computed: {
+      ...mapGetters({ getSubsetOfListings: 'listings/getSubsetOfListings' }),
       listings() {
-        return MOCK_LISTINGS
+        return this.getSubsetOfListings(8)
+      },
+      hasNextPage() {
+        return this.blogPosts.length > 8
       },
       showListings() {
         return this.listings.length > 0

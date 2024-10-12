@@ -1,40 +1,40 @@
 <template>
   <div class="listing-details">
-    <listing-details-photos :images="listing.images" />
+    <listing-details-photos :images="images" />
 
     <div class="header flex">
       <div>
-        <h1 class="bold mb-0">{{ listing.address.lineOne }}</h1>
-        <p>{{ listing.address.lineTwo }}</p>
+        <h1 class="bold mb-0">{{ fields.addressLineOne }}</h1>
+        <p>{{ fields.addressLineTwo }}</p>
 
         <p :class="status.color">{{ status.label }}</p>
       </div>
 
       <div class="flex align-center button-container">
         <nuxt-link to="/contact" class="btn-link mr-50 text-center flex-1">Request Information</nuxt-link>
-        <a :to="listing.applicationLink" class="btn-link alt text-center flex-1">Apply Online</a>
+        <a :to="fields.applicationLink" class="btn-link alt text-center flex-1">Apply Online</a>
       </div>
     </div>
 
     <div class="core-details details-grid">
       <div>
         <label>Bedrooms</label>
-        <p>{{ listing.beds }} bd.</p>
+        <p>{{ fields.beds }} bd.</p>
       </div>
 
       <div>
         <label>Bathrooms</label>
-        <p>{{ listing.baths }} ba.</p>
+        <p>{{ fields.baths }} ba.</p>
       </div>
 
       <div>
         <label>Square feet</label>
-        <p>{{ $options.prettyNumber(listing.sqft, 0) }} sqft.</p>
+        <p>{{ $options.prettyNumber(fields.sqft, 0) }} sqft.</p>
       </div>
 
       <div>
         <label>Monthly Rent</label>
-        <p class="color-primary">${{ $options.prettyNumber(listing.price, 0) }}</p>
+        <p class="color-primary">${{ $options.prettyNumber(fields.price, 0) }}</p>
       </div>
     </div>
 
@@ -56,7 +56,7 @@
 
           <div>
             <label>Deposit</label>
-            <p>${{ $options.prettyNumber(listing.deposit, 0) }}</p>
+            <p>${{ $options.prettyNumber(fields.deposit, 0) }}</p>
           </div>
         </div>
 
@@ -65,7 +65,7 @@
 
           <div>
             <label>Bedrooms</label>
-            <p>{{ listing.beds }} Bedrooms</p>
+            <p>{{ fields.beds }} Bedrooms</p>
           </div>
         </div>
 
@@ -74,7 +74,7 @@
 
           <div>
             <label>Bathrooms</label>
-            <p>{{ listing.baths }} Bathrooms</p>
+            <p>{{ fields.baths }} Bathrooms</p>
           </div>
         </div>
       </div>
@@ -84,7 +84,7 @@
       <h5>Features and Amenities</h5>
 
       <div class="details-grid">
-        <div v-for="(feature, index) in listing.features" :key="index" class="badge">
+        <div v-for="(feature, index) in fields.features" :key="index" class="badge">
           <i :class="feature.icon" />
 
           <div>
@@ -113,11 +113,19 @@
       }
     },
     computed: {
+      fields() {
+        return this.listing.fields
+      },
+      images() {
+        return this.fields.images.map(({ fields }) => {
+          return fields.file.url
+        })
+      },
       status() {
-        return (LISTING_STATUS_TYPE_ARRAY.find(({ value }) => value === this.listing.status)) || {}
+        return (LISTING_STATUS_TYPE_ARRAY.find(({ value }) => value === this.fields.status)) || {}
       },
       type() {
-        return (LISTING_TYPE_ARRAY.find(({ value }) => value === this.listing.type)) || {}
+        return (LISTING_TYPE_ARRAY.find(({ value }) => value === this.fields.type)) || {}
       }
     },
     prettyNumber

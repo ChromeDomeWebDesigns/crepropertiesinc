@@ -4,13 +4,13 @@
     <p :class="status.color" class="small mt-50">{{ status.label }}</p>
 
     <div class="address">
-      <p class="bold mb-0">{{ listing.address.lineOne }}</p>
-      <p class="smaller">{{ listing.address.lineTwo }}</p>
+      <p class="bold mb-0">{{ fields.addressLineOne }}</p>
+      <p class="smaller">{{ fields.addressLineTwo }}</p>
     </div>
 
     <div class="details small">
-      <p>{{ listing.beds }} bed • {{ listing.baths}} bath • {{ $options.prettyNumber(listing.sqft, 0) }} sqft</p>
-      <p>${{ $options.prettyNumber(listing.price, 0) }} / month</p>
+      <p>{{ fields.beds }} bed • {{ fields.baths}} bath • {{ $options.prettyNumber(fields.sqft, 0) }} sqft</p>
+      <p>${{ $options.prettyNumber(fields.price, 0) }} / month</p>
     </div>
   </div>
 </template>
@@ -28,11 +28,19 @@
       }
     },
     computed: {
+      fields() {
+        return this.listing.fields
+      },
+      images() {
+        return this.fields.images.map(({ fields }) => {
+          return fields.file.url
+        })
+      },
       photo() {
-        return `background-image: url("${this.listing.images[0]}")`
+        return `background-image: url("${this.images[0]}")`
       },
       status() {
-        return (LISTING_STATUS_TYPE_ARRAY.find(({ value }) => value === this.listing.status)) || {}
+        return (LISTING_STATUS_TYPE_ARRAY.find(({ value }) => value === this.fields.status)) || {}
       }
     },
     prettyNumber

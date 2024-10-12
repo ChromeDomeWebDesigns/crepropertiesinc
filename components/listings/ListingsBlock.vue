@@ -4,16 +4,18 @@
     <div class="flex column flex-center content">
       <h2>Listings</h2>
     </div>
-    <listings-grid v-if="showListings" :listings="listings" />
+    <template v-if="showListings">
+      <listings-grid :listings="listings" />
+    </template>
     <listings-block-empty-state v-else />
   </div>
 </section>
 </template>
 
 <script>
+  import { mapGetters } from 'vuex'
   import ListingsGrid from './ListingsGrid'
   import ListingsBlockEmptyState from './ListingsBlockEmptyState'
-  import { MOCK_LISTINGS } from '@/lib/listings'
 
   export default {
     name: 'ListingsBlock',
@@ -22,8 +24,12 @@
       ListingsBlockEmptyState
     },
     computed: {
+      ...mapGetters({ getSubsetOfListings: 'listings/getSubsetOfListings' }),
       listings() {
-        return MOCK_LISTINGS
+        return this.getSubsetOfListings(4)
+      },
+      hasNextPage() {
+        return this.blogPosts.length > 4
       },
       showListings() {
         return this.listings.length > 0

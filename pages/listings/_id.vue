@@ -6,29 +6,41 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import { headBuilder } from '@/lib/seo'
 import { prettyNumber } from '@/lib/utils'
-import { MOCK_LISTINGS } from '@/lib/listings'
 import ListingDetails from '@/components/listings/ListingDetails'
 
   export default {
-    name: 'ShopItemView',
+    name: 'ListingDetailsView',
     components: {
     ListingDetails,
     },
+    data() {
+      return {
+        id: this.$route.params.id
+      };
+    },
     head() {
-      const title =  `FOR RENT: ${this.listing?.address.lineOne } | CRE Properties`
-      const description = `$${prettyNumber(this.listing?.price, 0)} / month • ${this.listing?.beds} bed • ${this.listing?.baths} bath • ${prettyNumber(this.listing?.sqft, 0)} sqft`
-      const image = this.listing?.images?.[0]
-      const site = `https://www.crepropertiesinc.com/listings/${this.$route.params.id}`
+      const fields = this.listing?.fields
+
+      if (!fields) {
+        return
+      }
+
+      const title =  `FOR RENT: ${fields.addressLineOne } | CRE Properties`
+      const description = `$${prettyNumber(fields.price, 0)} / month • ${fields.beds} bed • ${fields.baths} bath • ${prettyNumber(fields.sqft, 0)} sqft`
+      const image = fields.images?.[0].fields.file.url
+      const site = `https://www.crepropertiesinc.com/listings/${this.id}`
 
       return headBuilder({ title, description, image, site })
     },
     computed: {
+      ...mapGetters({ getListingById: 'listings/getListingById' }),
       listing() {
-        return MOCK_LISTINGS[Number(this.$route.params.id) - 1]
+        return this.getListingById(this.id)
       },
-    }
+    },
   }
 </script>
 
