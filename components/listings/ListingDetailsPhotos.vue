@@ -14,11 +14,13 @@
         </div>
       </div>
     </template>
-    <lightbox
-      id="listing-photos"
-      ref="lightbox"
-      :images="lightboxImages"
-    />
+    <client-only>
+      <lightbox
+        id="listing-photos"
+        ref="lightbox"
+        :images="lightboxImages"
+      />
+    </client-only>
   </div>
 </template>
 
@@ -55,9 +57,11 @@
         return lightboxImages
       }
     },
-     methods: {
+    methods: {
       showLightbox(image) {
-        this.$refs.lightbox.show(image)
+        if (process.client && this.$refs.lightbox) {
+          this.$refs.lightbox.show(image)
+        }
       }
     },
     PLACEHOLDER_IMAGE: '/images/Placeholder.jpg'
