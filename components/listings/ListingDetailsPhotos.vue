@@ -1,20 +1,20 @@
 <template>
   <div>
-    <template v-if="singlePhoto">
-      <div class="single-image-container" :style="`background-image: url('${mainPhoto}')`" @click="showLightbox(mainPhoto)" />
-    </template>
-    <template v-else>
-      <div class="multi-image-grid">
-        <div v-for="(image, index) in headerImages" :key="index" class="multi-image-container" :class="index === 0 ? 'grid-main' : `grid-${index}`">
-          <img :src="image" @click="showLightbox(image)" />
-
-          <button v-if="index === 0" class="see-all-button show-main" @click="showLightbox(mainPhoto)"><i class="fas fa-th-large" /> <span class="ml-25">See all {{ images.length }} photos</span></button>
-          <button v-if="index === 2" class="see-all-button show-3" @click="showLightbox(mainPhoto)"><i class="fas fa-th-large" /> <span class="ml-25">See all {{ images.length }} photos</span></button>
-          <button v-if="index === 4" class="see-all-button show-5" @click="showLightbox(mainPhoto)"><i class="fas fa-th-large" /> <span class="ml-25">See all {{ images.length }} photos</span></button>
-        </div>
-      </div>
-    </template>
     <client-only>
+      <template v-if="singlePhoto">
+        <div class="single-image-container" :style="`background-image: url('${mainPhoto}')`" @click="showLightbox(mainPhoto)" />
+      </template>
+      <template v-else>
+        <div class="multi-image-grid">
+          <div v-for="(image, index) in headerImages" :key="index" class="multi-image-container" :class="index === 0 ? 'grid-main' : `grid-${index}`">
+            <img :src="image" @click="showLightbox(image)" />
+
+            <button v-if="index === 0" class="see-all-button show-main" @click="showLightbox(mainPhoto)"><i class="fas fa-th-large" /> <span class="ml-25">See all {{ images.length }} photos</span></button>
+            <button v-if="index === 2" class="see-all-button show-3" @click="showLightbox(mainPhoto)"><i class="fas fa-th-large" /> <span class="ml-25">See all {{ images.length }} photos</span></button>
+            <button v-if="index === 4" class="see-all-button show-5" @click="showLightbox(mainPhoto)"><i class="fas fa-th-large" /> <span class="ml-25">See all {{ images.length }} photos</span></button>
+          </div>
+        </div>
+      </template>
       <lightbox
         id="listing-photos"
         ref="lightbox"
