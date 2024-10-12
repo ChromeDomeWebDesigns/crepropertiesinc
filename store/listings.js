@@ -12,7 +12,7 @@ export const mutations = {
 }
 
 export const getters = {
-  getListingsFromFilter: state => ({ price, beds, baths, type, search } = {}) => {
+  getListingsFromFilter: state => ({ price, beds, baths, status, search } = {}) => {
     return state.listings.filter(l => {
       if (price && !queryMinMax({ min: price.min, max: price.max, data: l.fields.price })) {
         return false
@@ -26,7 +26,7 @@ export const getters = {
         return false
       }
 
-      if (type && type !== l.fields.type) {
+      if (status && status !== l.fields.status) {
         return false
       }
 

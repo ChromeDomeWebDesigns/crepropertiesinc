@@ -1,10 +1,10 @@
 <template>
   <section>
-    <listings-search-bar />
+    <listings-search-bar :filters="filters" @update="updateFilters" />
     <template v-if="showListings">
       <listings-grid :listings="listings" />
     </template>
-    <listings-search-empty-state v-else />
+    <listings-search-empty-state v-else :has-filters="hasFilters" />
   </section>
 </template>
 
@@ -14,7 +14,7 @@
   import ListingsGrid from './ListingsGrid'
   import ListingsSearchEmptyState from './ListingsSearchEmptyState'
 
-  const DEFAULT_FILTER = {
+  const DEFAULT_FILTERS = {
     price: {
       min: null,
       max: null
@@ -27,7 +27,7 @@
       min: null,
       max: null
     },
-    type: null,
+    status: null,
     search: null
   }
 
@@ -40,16 +40,31 @@
     },
     data() {
       return {
-        filter: DEFAULT_FILTER
+        filters: DEFAULT_FILTERS
       }
     },
     computed: {
       ...mapGetters({ getListingsFromFilter: 'listings/getListingsFromFilter' }),
       listings() {
-        return this.getListingsFromFilter(this.filter)
+        return this.getListingsFromFilter(this.filters)
       },
       showListings() {
         return this.listings.length > 0
+      },
+      hasFilters() {
+        return ['price', 'beds', 'baths'].some(key =>
+          this.filters[key].min !== null ||
+          this.filters[key].max !== null) ||
+          this.filters.status !== null ||
+          this.filters.search !== null;
+      }
+    },
+    methods: {
+      updateFilters(filters) {
+        this.filters = {
+          ...this.filters,
+          ...filters
+        }
       }
     }
   }

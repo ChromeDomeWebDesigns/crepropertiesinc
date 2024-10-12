@@ -21,11 +21,6 @@
 <script>
   import { hideAllPoppers } from 'floating-vue'
 
-  const DEFAULT_FORM = {
-    min: '',
-    max: ''
-  }
-
   const DEFAULT_ERRORS = {
     min: '',
     max: ''
@@ -33,9 +28,15 @@
 
   export default {
     name: 'BedFilter',
+    props: {
+      filter: {
+        type: Object,
+        required: true
+      }
+    },
     data() {
       return {
-        formData: { ...DEFAULT_FORM },
+        formData: { ...this.filter },
         errors: { ...DEFAULT_ERRORS },
         active: false
       }
@@ -74,7 +75,10 @@
           return
         }
 
-        this.$emit('update', { min: this.man, max: this.max })
+        const min = parseInt(this.formData.min)
+        const max = parseInt(this.formData.max)
+
+        this.$emit('update', { min, max })
         this.active = Object.values(this.formData).some(val => val)
         hideAllPoppers()
       }

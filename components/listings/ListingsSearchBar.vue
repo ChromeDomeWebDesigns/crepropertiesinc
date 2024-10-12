@@ -1,10 +1,10 @@
 <template>
   <div class="flex align-center search-bar-container">
     <div class="flex align-center filter-container">
-      <price-filter class="filter" />
-      <bed-filter class="filter" />
-      <bath-filter class="filter" />
-      <type-filter class="filter" />
+      <price-filter :filter="filters.price" class="filter" @update="$emit('update', { price: arguments[0] })" />
+      <bed-filter :filter="filters.beds" class="filter" @update="$emit('update', { beds: arguments[0] })" />
+      <bath-filter :filter="filters.baths" class="filter" @update="$emit('update', { baths: arguments[0] })"  />
+      <status-filter :filter="filters.status" class="filter" @update="$emit('update', { status: arguments[0] })" />
     </div>
     <input placeholder="Search by address, city, state, or zip code" class="search" />
   </div>
@@ -14,7 +14,7 @@
   import PriceFilter from './filters/PriceFilter'
   import BedFilter from './filters/BedFilter'
   import BathFilter from './filters/BathFilter'
-  import TypeFilter from './filters/TypeFilter'
+  import StatusFilter from './filters/StatusFilter'
 
   export default {
     name: 'ListingsSearchBar',
@@ -22,7 +22,13 @@
       PriceFilter,
       BedFilter,
       BathFilter,
-      TypeFilter
+      StatusFilter
+    },
+    props: {
+      filters: {
+        type: Object,
+        required: true
+      }
     }
   }
 </script>
