@@ -7,8 +7,8 @@
           <p>Located in St. Louis, MO we are dedicated to treating our clients and tenants as one of our own.</p>
         </section>
         <div class="button-container">
-          <nuxt-link to="/listings" class="flex align-center btn-link alt">View listings</nuxt-link>
-          <nuxt-link to="/contact" class="flex align-center btn-link">Contact us</nuxt-link>
+          <nuxt-link to="/listings" class="btn-link alt">View listings</nuxt-link>
+          <nuxt-link to="/contact" class="btn-link">Contact us</nuxt-link>
         </div>
       </div>
     </div>

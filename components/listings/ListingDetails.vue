@@ -2,7 +2,7 @@
   <div class="listing-details">
     <listing-details-photos :images="listing.images" />
 
-    <div class="header flex align-center">
+    <div class="header flex">
       <div>
         <h1 class="bold mb-0">{{ listing.address.lineOne }}</h1>
         <p>{{ listing.address.lineTwo }}</p>
@@ -10,9 +10,9 @@
         <p :class="status.color">{{ status.label }}</p>
       </div>
 
-      <div class="ml-a flex align-center">
-        <nuxt-link to="/contact" class="flex align-center btn-link mr-50">Request Information</nuxt-link>
-        <a :to="listing.applicationLink" class="flex align-center btn-link alt">Apply Online</a>
+      <div class="flex align-center button-container">
+        <nuxt-link to="/contact" class="btn-link mr-50 text-center flex-1">Request Information</nuxt-link>
+        <a :to="listing.applicationLink" class="btn-link alt text-center flex-1">Apply Online</a>
       </div>
     </div>
 
@@ -141,32 +141,46 @@
     .header {
       padding: 1rem 0;
       border-bottom: 1px solid color('grey');
+      flex-direction: column;
+
+      @media (min-width: breaks(tablet)) {
+        flex-direction: row;
+        align-items: center;
+      }
 
       h1 {
         font-size: 1.8em;
       }
 
-      .btn-link {
-        background-color: transparent;
-        color: color('primary');
-        border-color: color('primary');
-        font-size: 0.8em;
-        padding: 0.75rem 1rem;
+      .button-container {
+        margin: 1rem 0;
 
-        @media (min-width: breaks(small-tablet)) {
-          padding: 0.75rem 1.5rem;
+        @media (min-width: breaks(tablet)) {
+          margin: 0 0 0 auto;
         }
 
-        &.alt {
-          color: color('white');
-          background-color: color('primary');
+        .btn-link {
+          background-color: transparent;
+          color: color('primary');
           border-color: color('primary');
-        }
+          font-size: 0.8em;
+          padding: 0.75rem 1rem;
 
-        &:hover {
-          color: color('white');
-          background-color: lighten(color('primary'), 10%);
-          border-color: lighten(color('primary'), 10%);
+          @media (min-width: breaks(small-tablet)) {
+            padding: 0.75rem 1.5rem;
+          }
+
+          &.alt {
+            color: color('white');
+            background-color: color('primary');
+            border-color: color('primary');
+          }
+
+          &:hover {
+            color: color('white');
+            background-color: lighten(color('primary'), 10%);
+            border-color: lighten(color('primary'), 10%);
+          }
         }
       }
     }
