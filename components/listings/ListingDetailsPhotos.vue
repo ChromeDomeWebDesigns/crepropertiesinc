@@ -1,15 +1,22 @@
 <template>
   <div>
     <template v-if="singlePhoto">
-      <div class="single-image-container" :style="`background-image: url('${mainPhoto}')`" />
+      <div class="single-image-container" :style="`background-image: url('${mainPhoto}')`" @click="showLightbox(0)" />
     </template>
     <template v-else>
       <div class="multi-image-grid">
         <div v-for="(image, index) in headerImages" :key="index" class="multi-image-container" :class="index === 0 ? 'grid-main' : `grid-${index}`">
-          <img :src="image || $options.PLACEHOLDER_IMAGE" />
+          <img :src="image" @click="showLightbox(image)" />
         </div>
       </div>
     </template>
+    <client-only>
+      <lightbox
+        id="listing-photos"
+        ref="lightbox"
+        :images="lightboxImages"
+      />
+    </client-only>
   </div>
 </template>
 
@@ -32,6 +39,23 @@
       },
       headerImages() {
         return this.images.slice(0, 5);
+      },
+      lightboxImages() {
+        const lightboxImages = []
+
+        this.images.forEach(image => {
+          lightboxImages.push({
+            name: image,
+            id: image
+          })
+        })
+
+        return lightboxImages
+      }
+    },
+     methods: {
+      showLightbox(image) {
+        this.$refs.lightbox.show(image)
       }
     },
     PLACEHOLDER_IMAGE: '/images/Placeholder.jpg'
