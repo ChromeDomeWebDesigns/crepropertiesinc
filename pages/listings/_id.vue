@@ -1,28 +1,20 @@
 <template>
-  <div id="app">
-    <top-nav />
-    <article>
-      <listing-details v-if="listing" :listing="listing" />
-      <p v-if="!listing">Unknown Listing</p>
-    </article>
-    <bottom-footer />
-  </div>
+  <article>
+    <listing-details v-if="listing" :listing="listing" />
+    <p v-if="!listing">Unknown Listing</p>
+  </article>
 </template>
 
 <script>
 import { headBuilder } from '@/lib/seo'
 import { prettyNumber } from '@/lib/utils'
 import { MOCK_LISTINGS } from '@/lib/listings'
-import TopNav from '@/components/TopNav';
 import ListingDetails from '@/components/listings/ListingDetails'
-import BottomFooter from '@/components/BottomFooter'
 
   export default {
     name: 'ShopItemView',
     components: {
-    TopNav,
     ListingDetails,
-    BottomFooter
     },
     head() {
       const title =  `FOR RENT: ${this.listing?.address.lineOne } | CRE Properties`
