@@ -1,21 +1,33 @@
 <template>
-<main>
+<section>
   <div class="page-margin w-100">
     <div class="flex column flex-center content">
       <h2>Listings</h2>
-      <listings-block-empty-state />
     </div>
+    <listings-grid v-if="showListings" :listings="listings" />
+    <listings-block-empty-state v-else />
   </div>
-</main>
+</section>
 </template>
 
 <script>
+  import ListingsGrid from './ListingsGrid'
   import ListingsBlockEmptyState from './ListingsBlockEmptyState'
+  import { MOCK_LISTINGS } from '@/lib/listings'
 
   export default {
     name: 'ListingsBlock',
     components: {
+      ListingsGrid,
       ListingsBlockEmptyState
+    },
+    computed: {
+      listings() {
+        return MOCK_LISTINGS
+      },
+      showListings() {
+        return this.listings.length > 0
+      }
     }
   }
 </script>
@@ -24,7 +36,7 @@
   @import './assets/styles/colors';
   @import './assets/styles/breaks';
 
-  main {
+  section {
     background-color: color('primary');
 
     .content {
