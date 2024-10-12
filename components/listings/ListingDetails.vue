@@ -1,6 +1,8 @@
 <template>
   <div class="listing-details">
-    <listing-details-photos :images="images" />
+    <client-only>
+      <listing-details-photos :images="images" />
+    </client-only>
 
     <div class="header flex">
       <div>
