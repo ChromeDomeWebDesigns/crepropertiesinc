@@ -14,13 +14,11 @@
         </div>
       </div>
     </template>
-    <client-only>
-      <lightbox
-        id="listing-photos"
-        ref="lightbox"
-        :images="lightboxImages"
-      />
-    </client-only>
+    <lightbox
+      id="listing-photos"
+      ref="lightbox"
+      :images="lightboxImages"
+    />
   </div>
 </template>
 
