@@ -14,6 +14,23 @@
   import ListingsGrid from './ListingsGrid'
   import ListingsSearchEmptyState from './ListingsSearchEmptyState'
 
+  const DEFAULT_FILTER = {
+    price: {
+      min: null,
+      max: null
+    },
+    beds: {
+      min: null,
+      max: null
+    },
+    baths: {
+      min: null,
+      max: null
+    },
+    type: null,
+    search: null
+  }
+
   export default {
     name: 'ListingsSearchForm',
     components: {
@@ -21,13 +38,15 @@
       ListingsGrid,
       ListingsSearchEmptyState
     },
+    data() {
+      return {
+        filter: DEFAULT_FILTER
+      }
+    },
     computed: {
-      ...mapGetters({ getSubsetOfListings: 'listings/getSubsetOfListings' }),
+      ...mapGetters({ getListingsFromFilter: 'listings/getListingsFromFilter' }),
       listings() {
-        return this.getSubsetOfListings(8)
-      },
-      hasNextPage() {
-        return this.blogPosts.length > 8
+        return this.getListingsFromFilter(this.filter)
       },
       showListings() {
         return this.listings.length > 0

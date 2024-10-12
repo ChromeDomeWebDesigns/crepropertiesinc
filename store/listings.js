@@ -1,4 +1,5 @@
 import client from "~/plugins/contentful";
+import { queryMinMax } from '~/lib/utils'
 
 export const state = () => ({
   listings: []
@@ -11,6 +12,31 @@ export const mutations = {
 }
 
 export const getters = {
+  getListingsFromFilter: state => ({ price, beds, baths, type, search } = {}) => {
+    return state.listings.filter(l => {
+      if (price && !queryMinMax({ min: price.min, max: price.max, data: l.fields.price })) {
+        return false
+      }
+
+      if (beds && !queryMinMax({ min: beds.min, max: beds.max, data: l.fields.beds })) {
+        return false
+      }
+
+      if (baths && !queryMinMax({ min: baths.min, max: baths.max, data: l.fields.baths })) {
+        return false
+      }
+
+      if (type && type !== l.fields.type) {
+        return false
+      }
+
+      if (search && !`${l.fields.addressLineOne} ${l.fields.addressLineTwo}`.includes(search)) {
+        return false
+      }
+
+      return true
+    })
+  },
   getSubsetOfListings: state => (num) => {
     return state.listings ? state.listings.slice(0, num) : []
   },
