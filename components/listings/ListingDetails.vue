@@ -84,11 +84,25 @@
       <h5>Features and Amenities</h5>
 
       <div class="details-grid">
-        <div v-for="(feature, index) in fields.features" :key="index" class="badge">
+        <div v-for="(feature, index) in features" :key="index" class="badge">
           <i :class="feature.icon" />
 
           <div>
             <p>{{ feature.label }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="property-utilities">
+      <h5>Utilities</h5>
+
+      <div class="details-grid">
+        <div v-for="(utility, index) in utilities" :key="index" class="badge">
+          <i :class="utility.icon" />
+
+          <div>
+            <p>{{ utility.label }}</p>
           </div>
         </div>
       </div>
@@ -126,7 +140,13 @@
       },
       type() {
         return (LISTING_TYPE_ARRAY.find(({ value }) => value === this.fields.type)) || {}
-      }
+      },
+      features() {
+        return this.fields.features || []
+      },
+      utilities() {
+        return this.fields.utilities || []
+      },
     },
     prettyNumber
   }
@@ -214,7 +234,8 @@
     }
 
     .property-details,
-    .property-features {
+    .property-features,
+    .property-utilities {
       padding: 1rem 0;
 
       h5 {
