@@ -12,7 +12,7 @@
 
       <div class="flex align-center button-container">
         <nuxt-link to="/contact" class="btn-link mr-50 text-center flex-1">Request Information</nuxt-link>
-        <a :href="fields.applicationLink" target="_blank" class="btn-link alt text-center flex-1">Apply Online</a>
+        <a v-if="isActive" :href="fields.applicationLink" target="_blank" class="btn-link alt text-center flex-1">Apply Online</a>
       </div>
     </div>
 
@@ -112,7 +112,7 @@
 
 <script>
   import ListingDetailsPhotos from './ListingDetailsPhotos'
-  import { LISTING_STATUS_TYPE_ARRAY, LISTING_TYPE_ARRAY } from '@/lib/listings'
+  import { LISTING_STATUS_TYPE_ARRAY, LISTING_TYPE_ARRAY, LISTING_STATUS_TYPE } from '@/lib/listings'
   import { prettyNumber } from '@/lib/utils'
 
   export default {
@@ -147,6 +147,9 @@
       utilities() {
         return this.fields.utilities || []
       },
+      isActive() {
+        return this.status.value === LISTING_STATUS_TYPE.AVAILABLE.value
+      }
     },
     prettyNumber
   }
